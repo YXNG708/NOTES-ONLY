@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-2oa41XCF/QBjTtz0r08hdFo+AwkKPwhZnxlkOd9ofW8=' 'sha256-/+JBCR08rTMXO16MNJhtCk3UVtrBhYEyytLv3hf35/c=' 'sha256-KusUcfMeMAfIolay8InfDvEJp1dP4s6SJ7lZB56kmHA=' 'sha256-SdYdC+pAvfDdfwcZeoFiszbsQTz3/7ta9E5l01vIUos='; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Notes Only</title>
 <style>
@@ -243,7 +245,8 @@ body::before {
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<script>window.NOTES_ONLY_OFFLINE = true;</script>
+<style>html.framed body{display:none!important}html.framed::before{content:"Open Notes Only directly in its own tab.";display:block;padding:24px;font:16px system-ui,sans-serif;color:#000;background:#fff}</style>
+<script>window.NOTES_ONLY_OFFLINE = true; if (window.top !== window.self) document.documentElement.className += " framed";</script>
 </head>
 <body>
 
